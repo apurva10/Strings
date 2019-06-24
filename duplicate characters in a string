@@ -1,0 +1,42 @@
+How to Print duplicate characters from String?
+
+
+#include <iostream>
+#include <string.h>
+#include <map>
+#include <algorithm>
+
+using namespace std;
+
+int main()
+{
+    string s = "Apurva";
+    
+    transform(s.begin(), s.end(), s.begin(), ::tolower);
+    
+    char arr[s.length()];
+    strcpy(arr, s.c_str());
+    
+    std::map<char, int> map;
+    
+    for(int i=0; i<s.length(); i++)
+    {
+       // cout<< arr[i];
+        if(map.count(arr[i]))
+        {
+        int val = map[arr[i]];
+        map[arr[i]] = val+1;
+        }
+        else
+        {
+            map.insert({arr[i],1});
+        }
+    }
+    
+    for (std::map<char,int>::const_iterator it = map.begin(); it!= map.end(); it++)
+    {
+        cout<<it->first<<" : "<<it->second<<endl;
+    }
+
+    return 0;
+}
