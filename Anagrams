@@ -1,0 +1,53 @@
+How to check if two Strings are anagrams of each other?
+
+/******************************************************************************
+
+                              Online C++ Compiler.
+               Code, Compile, Run and Debug C++ program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
+#include <iostream>
+#include <algorithm>
+#include <string.h>
+
+using namespace std;
+
+int main()
+{
+    bool anagram = true;
+    
+    string s1 = "aba";
+    string s2 = "baa";
+    
+    char s1arr[s1.length()];
+    char s2arr[s2.length()];
+    
+    strcpy(s1arr, s1.c_str());
+    strcpy(s2arr, s1.c_str());
+    
+    int length1 = sizeof(s1arr)/sizeof(s1arr[0]);
+    int length2 = sizeof(s2arr)/sizeof(s2arr[0]);
+    
+    if(length1!=length2)
+    {
+        anagram=false;
+        cout<<"string are anagram : "<<anagram;
+        return 0;
+    }
+    
+    sort(s1arr, s1arr+length1);
+    sort(s2arr, s2arr+length2);
+    
+    for(int i=0; i<length1; i++)
+    {
+        if (s1arr[i] != s2arr[i])
+        {
+            anagram = false;
+        }
+    }
+
+    cout<<"strings are anagram : "<<anagram;
+    return 0;
+}
