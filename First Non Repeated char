@@ -1,0 +1,45 @@
+How to program to print first non repeated character from String
+
+#include <iostream>
+#include <string.h>
+#include <map>
+#include <algorithm>
+
+using namespace std;
+
+int main()
+{
+    string s = "Mmmmorningo";
+    
+    transform(s.begin(), s.end(), s.begin(), ::tolower);
+    
+    char arr[s.length()];
+    strcpy(arr, s.c_str());
+    
+    std::map<char, int> map;
+    
+    for(int i=0; i<s.length(); i++)
+    {
+       // cout<< arr[i];
+        if(map.count(arr[i]))
+        {
+        int val = map[arr[i]];
+        map[arr[i]] = val+1;
+        }
+        else
+        {
+            map.insert({arr[i],1});
+        }
+    }
+    
+    for(int i=0; i<s.length(); i++)
+    {
+        if(map[arr[i]] == 1)
+        {
+            cout<<"First Non repeated is :"<< arr[i];
+            return 0;
+        }
+    }
+
+    return 0;
+}
