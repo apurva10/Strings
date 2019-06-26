@@ -58,3 +58,54 @@ int main()
 o/p : good is Apurva
 
 3. Reverse every character in a word of a string
+
+/******************************************************************************
+
+                              Online C++ Compiler.
+               Code, Compile, Run and Debug C++ program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
+#include <iostream>
+#include <string>
+#include <sstream>
+#include <vector>
+
+using namespace std;
+
+int main()
+{
+    string s = "Apurva is good";
+    string reverses;
+    
+    for(int i=s.length(); i>=0; i--)
+    {
+        reverses += s[i];
+    }
+    
+    stringstream ss;
+    ss<<reverses;
+    
+    string item;
+    vector<string> myvect;
+    
+    
+   while(getline(ss,item,' '))
+   {
+       myvect.push_back(item);
+   }
+   
+   for(vector<string>::reverse_iterator it=myvect.rbegin(); it<myvect.rend(); it++)
+   {
+       cout<<*it<<" ";
+   }
+    
+    /*for(int i=myvect.size(); i>=0; i--)
+    {
+        cout<<myvect.at(i)<<"1";
+    }*/
+
+    return 0;
+}
+
