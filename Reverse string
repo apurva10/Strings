@@ -22,4 +22,39 @@ int main()
 
 2. Reverse every word in a string
 
+/******************************************************************************
+
+                              Online C++ Compiler.
+               Code, Compile, Run and Debug C++ program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
+#include <iostream>
+#include <sstream>
+#include <vector>
+
+using namespace std;
+
+int main()
+{
+    string s("Apurva is good");
+    std::stringstream ss;
+    ss<<s;
+    std::string item;
+    std::vector<std::string> splittedStrings;
+    while (std::getline(ss, item,' '))
+    {
+       splittedStrings.push_back(item);
+    }
+    
+    for(vector<std::string>::reverse_iterator it=splittedStrings.rbegin(); it<splittedStrings.rend();it++)
+    {
+        std::cout << *it<<" ";
+    }
+    return 0;
+}
+
+o/p : good is Apurva
+
 3. Reverse every character in a word of a string
